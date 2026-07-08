@@ -2,7 +2,7 @@
 
 A simple interactive shell script to edit music metadata (artist, title, track number, album) using `ffmpeg`. Supports `.mp3`, `.wav`, `.ogg`, `.m4a`, and `.flac` files.
 
-> Read this in [Portuguese (Brasil)](#-SoundMeta-Shell-(PT_BR))
+> Read this in [Portuguese (Brasil)](#-SoundMeta-Shell (PT_BR))
 
 ---
 
