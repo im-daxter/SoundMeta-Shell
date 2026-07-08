@@ -2,7 +2,7 @@
 
 A simple interactive shell script to edit music metadata (artist, title, track number, album) using `ffmpeg`. Supports `.mp3`, `.wav`, `.ogg`, `.m4a`, and `.flac` files.
 
-> Read this in [Portuguese (Brasil)](#-SoundMeta-Shell(PT-BR))
+> Read this in [Portuguese (Brasil)](#-SoundMeta-Shell-(PT_BR))
 
 ---
 
@@ -90,7 +90,7 @@ Licensed under the [GNU GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
 ---
 ---
 
-# SoundMeta-Shell 🎵 (PT-BR)
+# 🎵 SoundMeta-Shell (PT-BR)
 
 Um script shell interativo simples para editar metadados de músicas (artista, título, número da faixa, álbum) usando `ffmpeg`. Suporta arquivos `.mp3`, `.wav`, `.ogg`, `.m4a` e `.flac`.
 
