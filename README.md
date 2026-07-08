@@ -33,7 +33,7 @@ sudo pacman -S ffmpeg
 
 ```bash
 git clone https://github.com/im-daxter/SoundMeta-Shell.git
-cd soundmeta
+cd SoundMeta-Shell
 chmod +x soundmeta
 ```
 
@@ -125,7 +125,7 @@ sudo pacman -S ffmpeg
 
 ```bash
 git clone https://github.com/im-daxter/SoundMeta-Shell.git
-cd soundmeta
+cd SoundMeta-Shell
 chmod +x soundmeta
 ```
 
