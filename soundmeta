@@ -1,0 +1,296 @@
+#!/usr/bin/env bash
+
+# ---------------------------
+# Script      : SoundMeta-Shell
+# Description : Shell tool for manipulating music playlist metadata
+# Version     : 1.0
+# Autor       : im-daxter (Jorge Luis)
+# Data	      : 06/07/2026
+# License     : GNU/GPL v3.0
+# ---------------------------
+
+# Change artist name menu
+artistName() {
+    
+    read -p "In Artist, Do you want all in one take? (Y/n): " confirm
+
+    if [[ "$confirm" =~ ^[yY]$ ]]; then
+    
+    # Ask for the artist name
+    read -p "Insert the Artist name: " NEW_ARTIST
+
+    # 'For' to run in all playlist files
+    for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do
+        
+        # Verify if the file exist, if not continue
+        [[ -e "$archive" ]] || continue
+        echo -e "Editing the file: $archive"
+
+        # Use mutagen or exiftool
+        ffmpeg -i "$archive" -metadata artist="$NEW_ARTIST" -c:a copy -y "tmp_$archive" && mv "tmp_$archive" "$archive"
+
+        echo "Task Conclued"
+        sleep 1s
+        clear
+
+    done
+    echo "Artist names edited with success!"
+
+    else
+    # 'For' to run in all playlist files
+    for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do
+        
+        # Verify if the file exist, if not continue
+        [[ -e "$archive" ]] || continue
+        echo -e "Editing the file: $archive"
+
+        # Ask for the artist name
+        read -p "Insert the artist name: " NEW_ARTIST
+
+        # Confirm
+        read -p "Confirm? (Y/n): " confirm
+        if [[ "$confirm" =~ ^[nN]$ ]]; then
+        echo "Action canceled to this file"
+        continue
+        fi
+
+        # Use mutagen or exiftool
+        ffmpeg -i "$archive" -metadata artist="$NEW_ARTIST" -c:a copy -y "tmp_$archive" && mv "tmp_$archive" "$archive"
+
+        echo "Task Conclued"
+        sleep 1s
+        clear
+
+    done
+    echo "Artist names edited with success!"
+    fi
+}
+
+# Change title tracks menu
+title() {
+
+    for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do 
+
+    # Verify if the file exist, if not continue
+    [[ -e "$archive" ]] || continue
+
+    echo -e "Editing the file: $archive"
+
+    # Ask for the title
+    read -p "Insert the track title (Title): " NEW_TITLE
+    
+    # Resume of the informations
+    echo -e "\nRESUME: "
+    echo "Title: $NEW_TITLE"
+
+    # Confirm
+    read -p "Confirm? (Y/n): " confirm
+
+    if [[ "$confirm" =~ ^[nN]$ ]]; then
+        echo "Action canceled to this file"
+        continue
+    fi
+
+    # Use mutagen or exiftool
+    ffmpeg -i "$archive" -metadata title="$NEW_TITLE" -c:a copy -y "tmp_$archive" && mv "tmp_$archive" "$archive"
+
+    echo "Task Conclued"
+    sleep 1s
+    clear
+
+    done
+    echo -e "\nPlaylist modified with success"
+}
+
+# Change tracks number menu
+trackNumber() {
+
+    # 'For' to run in all playlist files
+    for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do
+    
+    # Verify if the file exist, if not continue
+    [[ -e "$archive" ]] || continue
+    echo -e "Editing the file: $archive"
+
+    # Ask for the track number
+    read -p "Insert the track number (Track): " NEW_TRACK
+
+    # Confirm
+    read -p "Confirm? (Y/n): " confirm
+    if [[ "$confirm" =~ ^[nN]$ ]]; then
+        echo "Action canceled to this file"
+        continue
+    fi
+
+    # Use mutagen or exiftool
+    ffmpeg -i "$archive" -metadata track="$NEW_TRACK" -c:a copy -y "tmp_$archive" && mv "tmp_$archive" "$archive"
+
+    echo "Task Conclued"
+    sleep 1s
+    #clear
+
+    done
+    echo "Track numbers edited with success!"
+}
+
+# Change album name menu
+albumName() {
+
+    read -p "In Album, Do you want all in one take? (Y/n): " confirm
+
+    if [[ "$confirm" =~ ^[yY]$ ]]; then
+    
+    # Ask for the Album name
+    read -p "Insert the Album name: " NEW_ALBUM
+
+    # 'For' to run in all playlist files
+  -----------------------------------------
+    for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do
+         
+         # Verify if the file exist, if not continue
+         [[ -e "$archive" ]] || continue
+         echo -e "Editing the file: $archive"
+ 
+         # Use mutagen or exiftool
+         ffmpeg -i "$archive" -metadata album="$NEW_ALBUM" -c:a copy -y "tmp_$archive" && mv "tmp_$archive" "$archive"
+ 
+         echo "Task Conclued"
+         sleep 1s
+         clear
+ 
+     done
+     echo "Albums names edited with success!"
+
+    else
+    # 'For' to run in all playlist files
+    for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do
+        
+        # Verify if the file exist, if not continue
+        [[ -e "$archive" ]] || continue
+        echo -e "Editing the file: $archive"
+
+        # Ask for the Album name
+        read -p "Insert the Album name: " NEW_ALBUM
+
+        # Confirm
+        read -p "Confirm? (Y/n): " confirm
+        if [[ "$confirm" =~ ^[nN]$ ]]; then
+        echo "Action canceled to this file"
+        continue
+        fi
+
+        # Use mutagen or exiftool
+        ffmpeg -i "$archive" -metadata album="$NEW_ALBUM" -c:a copy -y "tmp_$archive" && mv "tmp_$archive" "$archive"
+
+        echo "Task Conclued"
+        sleep 1s
+        clear
+
+        done
+    echo "Albums names edited with success!"
+    fi
+}
+
+loopin() {
+
+    # Global variables and questions
+    read -p "Insert the Album's name: " NEW_ALBUM
+
+    # 'For' to run in all playlist files
+    for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do 
+
+    # Verify if the file exist, if not continue
+    [[ -e "$archive" ]] || continue
+
+    echo -e "Editing the file: $archive"
+
+    # Ask for the title and track number
+    read -p "Insert the track number: " NEW_TRACK
+    read -p "Insert the track title: " NEW_TITLE
+    read -p "Insert the artist name: " NEW_ARTIST
+    
+    # Resume of the informations
+    echo -e "\nRESUME: "
+    echo "Track: $NEW_TRACK"
+    echo "Title: $NEW_TITLE"
+    echo "Artist: $NEW_ARTIST"
+    echo "Album: $NEW_ALBUM"
+
+    # Confirm
+    read -p "Confirm? (Y/n): " confirm
+
+    if [[ "$confirm" =~ ^[nN]$ ]]; then
+        echo "Action canceled to this file"
+        continue
+    fi
+
+    # Use mutagen or exiftool
+    ffmpeg -i "$archive" -metadata artist="$NEW_ARTIST" -metadata album="$NEW_ALBUM" -metadata title="$NEW_TITLE" -metadata track="$NEW_TRACK" -c:a copy -y "tmp_$archive" && mv "tmp_$archive" "$archive"
+
+    echo "Task Conclued"
+    sleep 1s
+    clear
+
+    done
+    echo -e "\nPlaylist modified with success"
+}
+
+# Define the Directory
+DIR=$(pwd)
+
+while true; do
+    clear
+    echo "Actual Directory: $DIR"
+
+    # Header of the Menu
+    echo "========================================="
+    echo "          MUSIC METADATA EDITOR          "
+    echo "========================================="
+    echo "  CHOOSE AN OPTION:"
+    echo "-----------------------------------------"
+    echo "  1) Change Only Artist"
+    echo "  2) Change Only Title"
+    echo "  3) Change Only Number"
+    echo "  4) Change Only Album"
+    echo "  5) Change All in one Take"
+    echo "  6) Exit"
+    echo "========================================="
+    read -p "Insert an option: " option
+
+    # Menu
+    case "$option" in
+    1)
+            echo -e "\nChange Artist"
+        artistName
+            read -p "Press Enter to continue..."
+            ;;
+    2)
+            echo -e "\nChange Title"
+        title
+            read -p "Press Enter to continue..."
+            ;;
+    3)
+            echo -e "\nChange Track number"
+        trackNumber
+            read -p "Press Enter to continue..."
+            ;;
+    4)
+            echo -e "\nChange Album"
+        albumName
+            read -p "Press Enter to continue..."
+            ;;
+    5)
+            echo -e "\nStarting Loopin Mode..."
+            loopin
+            read -p "Press Enter to continue..."
+            ;;
+    6)
+            echo "Quitting..."
+            exit 0
+            ;;
+    *)
+            echo "Invalid Option!!"
+        sleep 1
+            ;;
+    esac
+done
