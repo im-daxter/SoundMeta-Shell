@@ -18,23 +18,23 @@ A simple interactive shell script to edit music metadata (artist, title, track n
 
 ## Requirements
 
-- Bash (Linux/macOS/WSL)
+- Bash (Linux)
 - [ffmpeg](https://ffmpeg.org/) installed and available in your `PATH`
 
 ```bash
 # Debian/Ubuntu
 sudo apt install ffmpeg
 
-# macOS (Homebrew)
-brew install ffmpeg
+# Arch Linux
+sudo pacman -S ffmpeg
 ```
 
 ## Installation
 
 ```bash
-git clone https://github.com/your-username/soundmeta-shell.git
-cd soundmeta-shell
-chmod +x soundmeta.sh
+git clone https://github.com/im-daxter/SoundMeta-Shell.git
+cd soundmeta
+chmod +x soundmeta
 ```
 
 ## Usage
@@ -117,16 +117,16 @@ Um script shell interativo simples para editar metadados de músicas (artista, t
 # Debian/Ubuntu
 sudo apt install ffmpeg
 
-# macOS (Homebrew)
-brew install ffmpeg
+# Arch Linux
+sudo pacman -S ffmpeg
 ```
 
 ## Instalação
 
 ```bash
-git clone https://github.com/seu-usuario/soundmeta-shell.git
-cd soundmeta-shell
-chmod +x soundmeta.sh
+git clone https://github.com/im-daxter/SoundMeta-Shell.git
+cd soundmeta
+chmod +x soundmeta
 ```
 
 ## Como usar
