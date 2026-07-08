@@ -144,7 +144,6 @@ albumName() {
     read -p "Insert the Album name: " NEW_ALBUM
 
     # 'For' to run in all playlist files
-  -----------------------------------------
     for archive in *.mp3 *.wav *.ogg *.m4a *.flac; do
          
          # Verify if the file exist, if not continue
